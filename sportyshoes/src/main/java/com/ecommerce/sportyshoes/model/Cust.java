@@ -1,9 +1,13 @@
 package com.ecommerce.sportyshoes.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cust {
@@ -18,7 +22,26 @@ public class Cust {
 	
 	private String email;
 	
+	@OneToMany(mappedBy="cust")
+	private List<OrderTable> orderTable = new ArrayList<>();
 	
+	
+	public List<OrderTable> getOrder() {
+		return orderTable;
+	}
+
+	public List<OrderTable> getOrderTable() {
+		return orderTable;
+	}
+
+	public void setOrderTable(List<OrderTable> orderTable) {
+		this.orderTable = orderTable;
+	}
+
+	public void setOrder(List<OrderTable> orderTable) {
+		this.orderTable = orderTable;
+	}
+
 	public Cust() {
 		super();
 	}

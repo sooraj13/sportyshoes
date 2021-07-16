@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+<div align="center">
+<h1>Home Page</h1>
+<th:block th:switch="${flag2}">
+    <div th:case="'updatePassword'">
+       <span style = 'color:blue'>Password Updated successfully</span>
+    </div>
+    </br>
+    </br>
+</th:block>
+<Table >
+<tr>
+
+<td >
+
+		<form action="#" th:action="@{/home/manageproducts}" th:object="${admin}"method="post">
+			<input type='submit' value='Manage Products'>
+		</form>&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+
+<td >
+
+		<form action="#" th:action="@{/home/custlist}" th:object="${admin}"method="post">
+			<input type='submit' value='View Users'>
+		</form>&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+<td >
+
+		<form action="#" th:action="@{/home/purchasereportlist}" th:object="${admin}"method="post">
+			<input type='submit' value='View Purchase Report'>
+		</form>&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+</tr>
+
+<tr>
+<td></td>
+<td >
+
+		<form action="#" th:action="@{/home/changePassword}" th:object="${admin}"method="post">
+			<input type='submit' value='Change Password'>
+		</form>&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+</tr>
+		
+</Table>
+		
+</div>
+
+</body>
+</html>

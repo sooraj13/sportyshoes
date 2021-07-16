@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Purchase List Page</title>
+</head>
+<body>
+
+<div align = "center">
+	<h1>Purchase Report</h1>
+	<form action="#" th:action="@{/home/filterbybrand}" th:object="${orderTable}"method="post">
+			<input type="text" placeholder="Filter By Brand" name="brandname"  th:field="*{brand}"/>
+			<input type='submit' value='Filter' >
+	</form>&nbsp;&nbsp;&nbsp;&nbsp;
+		<form action="#" th:action="@{/home/filterbydate}" th:object="${orderTable}"method="post">
+			<input type="datetime" placeholder="Filter By Date" name="datename"  th:field="*{purchaseDate}"/>
+			<input type='submit' value='Filter' >
+	</form>&nbsp;&nbsp;&nbsp;&nbsp;
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Order Number</th>
+				<th>Shoe Series</th>
+				<th>Brand</th>
+				<th>Quantity</th>
+				<th>Total Price</th>
+				<th>Purchase Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="orderTable : ${purchaseList}">
+				<td th:text="${orderTable.orderId}"></td>
+				<td th:text="${orderTable.product.productName}"></td>
+				<td th:text="${orderTable.brand}"></td>
+				<td th:text="${orderTable.quantity}"></td>
+				<td th:text="${orderTable.totalPrice}"></td>
+				<td th:text="${orderTable.purchaseDate}"></td>
+			</tr>
+		</tbody>
+	</table>	
+</div>	
+
+</body>
+</html>
