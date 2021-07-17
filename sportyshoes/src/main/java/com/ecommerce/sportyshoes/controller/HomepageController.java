@@ -117,14 +117,18 @@ public class HomepageController {
 	}
 	
 	
-	@PostMapping("/updateProduct")
-	public String updateProduct(Model model) {
-		Product product = new Product();
-		List<Product> productList = homePageService.findAll();
-		model.addAttribute("productList", productList);
-		model.addAttribute("product", product);
-		return "manageproducts";
+	@PostMapping("/addnewproduct")
+	public String addNewProduct(@ModelAttribute("orderTable") Product product,Model model) {
+		
+		homePageService.addNewProduct(product);
+		Product newProduct = new Product();
+		model.addAttribute("product", newProduct);
+		model.addAttribute("flag3", "productAdded");
+		return "addproduct";
 
 	}
+	
+	
+
 	
 }

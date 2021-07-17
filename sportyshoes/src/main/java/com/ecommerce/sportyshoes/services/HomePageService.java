@@ -63,6 +63,11 @@ public class HomePageService {
 	public List<Product> findAll() {
 		return productRep.findAll();
 	}
+
+	public void addNewProduct(Product product) {
+		productRep.save(product);
+		
+	}
 	
 	
 	

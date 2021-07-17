@@ -6,11 +6,24 @@
 </head>
 <body>
 
-<div align = "center" th:object="${cust}>
+<div align = "center" >
 	<h1>Add New Product</h1>
 	</br>
 	</br>
-	Brand   : <input type="text" placeholder="Search By Name"  name="custname"  th:field="*{name}"/>
+	<th:block th:switch="${flag3}">
+    	<div th:case="'productAdded'">
+       		<span style = 'color:blue'>Product Added successfully</span>
+    	</div>
+	</th:block>
+	</br>
+    </br>
+	<form action="#" th:action="@{/home/addnewproduct}" th:object="${product}"method="post">
+		<input type="text" placeholder="Product Name"  name="productName" th:field="*{productName}"/>
+		<input type="text" placeholder="Product Brand"  name="brand" th:field="*{brand}"/>
+		<input type="text" placeholder="Product Size"  name="size" th:field="*{size}"/>
+		<input type="text" placeholder="Product Price"  name="price" th:field="*{price}"/>
+		<input type="submit" value ="ADD"  />
+	</form>
 </div>	
 
 </body>
